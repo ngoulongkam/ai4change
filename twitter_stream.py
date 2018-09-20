@@ -1,7 +1,7 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
-import twitter_credentials
+import auth
 
 class StdOutListener(StreamListener):
 
@@ -15,8 +15,8 @@ class StdOutListener(StreamListener):
 if __name__ == '__main__':
 
     listener = StdOutListener()
-    auth = OAuthHandler(twitter_credentials.CONSUMER_KEY, twitter_credentials.CONSUMER_SECRET)
-    auth.set_access_token(twitter_credentials.ACCESS_TOKEN, twitter_credentials.ACCESS_TOKEN_SECRET)
+    oauth = auth.auth
+    auth.authAccessToken
 
-    stream = Stream(auth, listener)
+    stream = Stream(oauth, listener)
     stream.filter(track=['capgemini', 'Capgemini', 'sogeti'])

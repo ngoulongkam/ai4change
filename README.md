@@ -1,70 +1,43 @@
 AI4Change
 ===================
+### About
 
-### Set up on your machine
+Created for the Capgemini AI 4 Change hackathon challenge, this is a simple tool to analyse the sentiment of tweets. Developed for learning purposes.
 
-Install Brew:
+### Service Definitions
 
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+The port for this service is 1337
 
-Install Python:
-
-```
-brew install python
+### Run the application locally
+```bash
+FLASK_APP=application.py flask run --port=1337
 ```
 
-Install Pip:
+### Setup Information
+Further information on machine and authentication credential setup can be found below.
 
-```
-curl -O http://python-distribute.org/distribute_setup.py
-python distribute_setup.py
-curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-python get-pip.py
-```
+| *Task* | *Description* | *Documentation* |
+|--------|----|----|
+| Machine Setup | Instructions for setting up python and virtualenv on your local machine | [Machine Setup](docs/machine_setup.md) |
+| Twitter Developer Account Setup | Instructions for setting up a Twitter Developer Account and add a credentials file to the project | [Twitter Developer Account Setup](docs/twitter_account_setup.md) |
+| MonkeyLearn Account Setup | Instructions for creating a MonkeyLearn account and obtaining your API_KEY | [MonkeyLearn Account Setup](docs/monkeylearn_setup.md) |
 
-Install Tweepy:
+### API
 
-```
-pip install tweepy
-```
-If you have trouble installing tweepy regarding 'six' or 'servicemanager', run the following:
+| *Task* | *Supported Methods* | *Description* |
+|--------|----|----|
+| ```/latest``` | GET | Retrieves the latest tweet from your own timeline and runs it through sentiment analysis. |
 
-```
-sudo pip install tweepy --ignore-installed six servicemanager
-```
+### Additional Options
 
-### Set up Twitter account and apply as developer 
+There are 2 additional scripts available.
 
-1. Create an account on Twitter
-
-2. Apply as a developer on: https://apps.twitter.com/
-
-3. Once applied as a developer, create an app
-
-### Generate Keys and Tokens
-
-Once an app has been created, you can navigate to 'Keys and tokens' to generate the `API key`, `API secret key`, `Access token` and `Access token secret`
-
-Clone this repo and create a new file called: `twitter_credentials.py` 
-
-Inside the `twitter_credentials.py` file, write the following:
-
-```
-ACCESS_TOKEN = "xxxxxxxxx"
-ACCESS_TOKEN_SECRET = "xxxxxxxxx"
-CONSUMER_KEY = "xxxxxxxxx"
-CONSUMER_SECRET = "xxxxxxxxx"
-```
-Where `xxxxxxxxx` are the keys generated in the step above, ensure you copy the correct key into the correct variable otherwise you won't be able to execute the script.
-
-### Execute the script
+| *Name* | *Description* |
+|--------|----|
+| hello_tweepy.py | Grabs some of the latest tweets from your home timeline. |
+| twitter_stream.py | Listens for any new, live tweets with specific keywords. |
 
 To execute a python script, simply write `python` [filename].py 
-
-for e.g.
-
 ```
 python hello_tweepy.py
 ```

@@ -3,6 +3,7 @@ from flask import jsonify
 import tweepy
 import auth
 from monkeylearn import MonkeyLearn
+import monkeylearn_credentials
 
 application = Flask(__name__)
 
@@ -12,7 +13,7 @@ def get_latest_messages():
 
     public_tweets = api.home_timeline()
     for tweet in public_tweets:
-        ml = MonkeyLearn('7c235e59c8b9e7bd928e0470188722e3ffba24cb')
+        ml = MonkeyLearn(monkeylearn_credentials.MONKEY_AUTH_TOKEN)
         data = [tweet.text]
         model_id = 'cl_pi3C7JiL'
         result = ml.classifiers.classify(model_id, data)

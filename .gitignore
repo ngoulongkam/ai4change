@@ -1,4 +1,5 @@
 twitter_credentials.py
+monkeylearn_credentials.py
 *.class
 *.log
 .idea/

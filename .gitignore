@@ -1,1 +1,7 @@
 twitter_credentials.py
+*.class
+*.log
+.idea/
+env/
+*.pyc
+Pipfile*

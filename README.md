@@ -22,6 +22,12 @@ Further information on machine and authentication credential setup can be found 
 | Twitter Developer Account Setup | Instructions for setting up a Twitter Developer Account and add a credentials file to the project | [Twitter Developer Account Setup](docs/twitter_account_setup.md) |
 | MonkeyLearn Account Setup | Instructions for creating a MonkeyLearn account and obtaining your API_KEY | [MonkeyLearn Account Setup](docs/monkeylearn_setup.md) |
 
+### API
+
+| *Task* | *Supported Methods* | *Description* |
+|--------|----|----|
+| ```/latest``` | GET | Retrieves the latest tweet from your own timeline and runs it through sentiment analysis. |
+
 ### Additional Options
 
 There are 2 additional scripts available.

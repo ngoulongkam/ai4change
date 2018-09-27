@@ -2,6 +2,7 @@ from tweepy.streaming import StreamListener
 from tweepy import Stream
 import auth
 
+
 class StdOutListener(StreamListener):
 
     def on_data(self, data):
@@ -10,6 +11,7 @@ class StdOutListener(StreamListener):
 
     def on_error(self, status):
         print(status)
+
 
 if __name__ == '__main__':
 

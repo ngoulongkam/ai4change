@@ -7,6 +7,7 @@ import monkeylearn_credentials
 
 application = Flask(__name__)
 
+
 @application.route("/latest", methods=["GET"])
 def get_latest_messages():
     api = tweepy.API(auth.auth)
@@ -18,6 +19,7 @@ def get_latest_messages():
         model_id = 'cl_pi3C7JiL'
         result = ml.classifiers.classify(model_id, data)
         return jsonify(result.body), 200
+
 
 if __name__ == "__main__":
     application.debug = True

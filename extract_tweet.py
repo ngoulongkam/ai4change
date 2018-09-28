@@ -1,5 +1,12 @@
+from flask import Flask
+from flask import jsonify
+import tweepy
+import auth
+from monkeylearn import MonkeyLearn
+import monkeylearn_credentials
+from tweepy.streaming import StreamListener
+from tweepy import Stream
 import json
-import pandas as pd
 
 tweets_data_path = 'twitter_data.txt'
 
@@ -9,8 +16,16 @@ for line in tweets_file:
     try:
         tweet = json.loads(line)
         print(tweet["text"])
-        tweets_data.append(tweet)
-        print(tweets_data)
+        data = [tweet["text"]]
+
+        ml = MonkeyLearn(monkeylearn_credentials.MONKEY_AUTH_TOKEN)
+        model_id = 'cl_pi3C7JiL'
+
+        result = ml.classifiers.classify(model_id, data)
+
+        print(result.body)
+
+        # tweets_data.append(tweet)
     except:
         continue
 
